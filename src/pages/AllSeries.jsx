@@ -1,4 +1,4 @@
-const AllMovies = () => {
+const AllSeries = () => {
     return (
         <div>
             All Movies
@@ -6,4 +6,4 @@ const AllMovies = () => {
     );
 };
 
-export default AllMovies;
+export default AllSeries;

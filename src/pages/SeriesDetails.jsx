@@ -1,4 +1,4 @@
-const MovieDetails = () => {
+const SeriesDetails = () => {
     return (
         <div>
             Movie Details
@@ -6,4 +6,4 @@ const MovieDetails = () => {
     );
 };
 
-export default MovieDetails;
+export default SeriesDetails;

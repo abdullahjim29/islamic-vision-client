@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const navLinks = <>
-    <li className="hover:border-b border-green-500 font-semibold"><Link to={'/'}>Home</Link></li>
-    <li className="hover:border-b border-green-500 font-semibold"><Link to={'/allmovies'}>All Movies</Link></li>
-    <li className="hover:border-b border-green-500 font-semibold"><Link to={'#'}>Add Movie</Link></li>
-    <li className="hover:border-b border-green-500 font-semibold"><Link to={'#'}>My Favorites</Link></li>
-    <li className="hover:border-b border-green-500 font-semibold"><Link to={'#'}>Discover</Link></li>
+    const navNavLinks = <>
+    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'/'}>Home</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'/all-series'}>All Series</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'/add-series'}>Add Series</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'favorite-series'}>My Favorites</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'discover'}>Discover</NavLink></li>
     </>
   return (
     <div className="navbar  w-11/12 mx-auto">
@@ -33,14 +33,14 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {navLinks}
+            {navNavLinks}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Islamic Vision</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-            {navLinks}
+            {navNavLinks}
         </ul>
       </div>
       <div className="navbar-end">

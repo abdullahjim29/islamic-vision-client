@@ -18,7 +18,7 @@ const BannerImageSlider = () => {
       <div className="hidden lg:block">
         <SimpleImageSlider
           width={1350}
-          height={600}
+          height={550}
           images={images}
           showNavs={true}
           navSize={25}

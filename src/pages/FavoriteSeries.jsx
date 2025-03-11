@@ -1,4 +1,4 @@
-const FavoriteMovie = () => {
+const FavoriteSeries = () => {
     return (
         <div>
             Favorite Movie
@@ -6,4 +6,4 @@ const FavoriteMovie = () => {
     );
 };
 
-export default FavoriteMovie;
+export default FavoriteSeries;
