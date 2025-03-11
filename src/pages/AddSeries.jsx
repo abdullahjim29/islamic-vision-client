@@ -1,4 +1,30 @@
 const AddSeries = () => {
+    const handleAddSeries = e => {
+        e.preventDefault();
+
+        const postar = e.target.postar.value;
+        const title = e.target.title.value;
+        const genre = e.target.genre.value;
+        const duration = e.target.duration.value;
+        const release = e.target.release.value;
+        const ratings = e.target.ratings.value;
+        const summary = e.target.summary.value;
+
+        const newSeries = {postar, title, genre, duration, release, ratings, summary}
+
+        // adding new series
+        fetch('http://localhost:5000/series', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newSeries)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }
   return (
     <div className="font-[raleway]">
       <div className="p-20 space-y-5 my-5">
@@ -10,7 +36,7 @@ const AddSeries = () => {
           letters, as opposed to using Content here.
         </p>
 
-        <form>
+        <form onSubmit={handleAddSeries}>
           <div className="grid md:grid-cols-2 gap-5">
             <div>
               Series Poster
@@ -24,7 +50,7 @@ const AddSeries = () => {
             <div>
               Series Title
               <input
-                name="chef"
+                name="title"
                 type="text"
                 placeholder="Title"
                 className="input w-full"
@@ -32,7 +58,7 @@ const AddSeries = () => {
             </div>
             <div>
               <label>Genre</label>
-              <select className="input w-full" name="" id="">
+              <select className="input w-full" name="genre" id="">
                 <option value="osmani khelafot">Osmani Khelafot</option>
                 <option value="seljuk khelafot">Seljuk Khelafot</option>
                 <option value="ayyubi">Ayyubi</option>
@@ -50,12 +76,12 @@ const AddSeries = () => {
             </div>
             <div>
               <label>Release Year</label>
-              <select className="input w-full" name="" id="">
-                <option value="osmani khelafot">2020</option>
-                <option value="seljuk khelafot">2021</option>
-                <option value="ayyubi">2022</option>
-                <option value="others">2023</option>
-                <option value="others">2024</option>
+              <select className="input w-full" name="release" id="">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
               </select>
             </div>
             <div>
@@ -73,7 +99,7 @@ const AddSeries = () => {
             <label>Summary</label>
             <textarea
               className="border border-gray-500 rounded-md w-full my-5"
-              name=""
+              name="summary"
               id=""
               cols={10}
               rows={7}
