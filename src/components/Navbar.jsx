@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const navLinks = <>
-    <li className="hover:border-b border-green-500"><Link to={'/'}>Home</Link></li>
-    <li className="hover:border-b border-green-500"><Link to={'/allmovies'}>All Movies</Link></li>
-    <li className="hover:border-b border-green-500"><Link to={'#'}>Add Movie</Link></li>
-    <li className="hover:border-b border-green-500"><Link to={'#'}>My Favorites</Link></li>
-    <li className="hover:border-b border-green-500"><Link to={'#'}>Discover</Link></li>
+    <li className="hover:border-b border-green-500 font-semibold"><Link to={'/'}>Home</Link></li>
+    <li className="hover:border-b border-green-500 font-semibold"><Link to={'/allmovies'}>All Movies</Link></li>
+    <li className="hover:border-b border-green-500 font-semibold"><Link to={'#'}>Add Movie</Link></li>
+    <li className="hover:border-b border-green-500 font-semibold"><Link to={'#'}>My Favorites</Link></li>
+    <li className="hover:border-b border-green-500 font-semibold"><Link to={'#'}>Discover</Link></li>
     </>
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar  w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,7 +44,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-green-500 text-white">Register</a>
+        <a className="btn bg-green-500 text-white border-none">Register</a>
       </div>
     </div>
   );
