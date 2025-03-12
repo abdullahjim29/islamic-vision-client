@@ -20,7 +20,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/all-series',
-                element: <AllSeries/>
+                element: <AllSeries/>,
+                loader: () => fetch('http://localhost:5000/series')
             },
             {
                 path: 'add-series',
