@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const navNavLinks = <>
-    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'/'}>Home</NavLink></li>
-    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'/all-series'}>All Series</NavLink></li>
-    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'/add-series'}>Add Series</NavLink></li>
-    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'favorite-series'}>My Favorites</NavLink></li>
-    <li><NavLink className={({isActive}) => isActive ? 'text-red-500' : 'hover:border-b border-green-500 font-semibold '} to={'discover'}>Discover</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-[#573AEE] font-bold' : 'hover:border-b border-[#573AEE] font-semibold text-white'} to={'/'}>Home</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-[#573AEE] font-bold' : 'hover:border-b border-[#573AEE] font-semibold text-white'} to={'/all-series'}>All Series</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-[#573AEE] font-bold' : 'hover:border-b border-[#573AEE] font-semibold text-white'} to={'/add-series'}>Add Series</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-[#573AEE] font-bold' : 'hover:border-b border-[#573AEE] font-semibold text-white'} to={'favorite-series'}>My Favorites</NavLink></li>
+    <li><NavLink className={({isActive}) => isActive ? 'text-[#573AEE] font-bold' : 'hover:border-b border-[#573AEE] font-semibold text-white'} to={'discover'}>Discover</NavLink></li>
     </>
   return (
     <div className="navbar  w-11/12 mx-auto">
@@ -44,7 +44,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-green-500 text-white border-none">Register</a>
+        <a className="btn bg-[#573AEE] text-white border-none">Register</a>
       </div>
     </div>
   );

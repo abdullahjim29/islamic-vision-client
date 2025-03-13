@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import SeriesCards from "../components/SeriesCards";
 import { IoIosArrowForward } from "react-icons/io";
-import { Link, useLoaderData } from "react-router-dom";
+import {useLoaderData } from "react-router-dom";
+import Video from "../components/Video";
 
 const Home = () => {
   const loadedSeries = useLoaderData();
@@ -22,15 +23,15 @@ const Home = () => {
         <h2 className="text-2xl font-[raleway]">Islamic Vision Most Popular</h2>
       </div>
       <SeriesCards series={series} />
-      <div className="flex items-center gap-2 hover:text-red-500 text-xl">
+      <div className="flex items-center gap-2 hover:text-[#573AEE] text-xl">
         <div className="flex items-center gap-2">
           {
-            series.length <= 6 ? <button onClick={showAllSeries}>See All</button> : <button onClick={() => setSeries([...series].slice(0, 6))}>See Less</button>
+            series.length <= 6 ? <button className="btn bg-[#573AEE] text-white" onClick={showAllSeries}>See All <IoIosArrowForward /></button> : <button className="btn bg-[#573AEE] text-white" onClick={() => setSeries([...series].slice(0, 6))}>See Less <IoIosArrowForward /></button>
           }
           {/* <Link to={'/all-series'}><button>See All</button></Link> */}
-          <IoIosArrowForward />
         </div>
       </div>
+      <Video/>
     </div>
   );
 };
