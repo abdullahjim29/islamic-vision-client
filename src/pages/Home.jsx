@@ -3,6 +3,7 @@ import SeriesCards from "../components/SeriesCards";
 import { IoIosArrowForward } from "react-icons/io";
 import {useLoaderData } from "react-router-dom";
 import Video from "../components/Video";
+// import Resolution from "../components/Resolution";
 
 const Home = () => {
   const loadedSeries = useLoaderData();
@@ -15,12 +16,11 @@ const Home = () => {
   const showAllSeries = () => {
     setSeries(loadedSeries);
   };
-
-  console.log(series);
+  
   return (
     <div>
       <div className="flex items-center gap-4">
-        <h2 className="text-2xl font-[raleway]">Islamic Vision Most Popular</h2>
+        <h2 className="text-3xl font-[raleway] font-semibold">Islamic Vision Most Popular</h2>
       </div>
       <SeriesCards series={series} />
       <div className="flex items-center gap-2 hover:text-[#573AEE] text-xl">
@@ -32,6 +32,7 @@ const Home = () => {
         </div>
       </div>
       <Video/>
+      {/* <Resolution/> */}
     </div>
   );
 };

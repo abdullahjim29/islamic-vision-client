@@ -7,7 +7,7 @@ const Video = () => {
           autoPlay
           muted
           loop
-          src="/src/assets/Şahi, Bizans Surlarını Yerle Yeksan Etti 🔥 - Mehmed_ Fetihler Sultanı 30. Bölüm @trt1.mp4"
+          src="/public/Şahi, Bizans Surlarını Yerle Yeksan Etti 🔥 - Mehmed_ Fetihler Sultanı 30. Bölüm @trt1.mp4"
         ></video>
       </div>
       <div id="video-content" className="p-10 w-11/12 bg-cover bg-center space-y-5">

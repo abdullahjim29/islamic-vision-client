@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import BannerImageSlider from "../components/BannerImageSlider";
+import Footer from "./Footer";
 
 const MainLayout = () => {
   return (
@@ -19,7 +20,7 @@ const MainLayout = () => {
         <Outlet />
       </main>
 
-      <footer></footer>
+      <Footer/>
     </div>
   );
 };
