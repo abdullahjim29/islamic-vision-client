@@ -5,6 +5,7 @@ import AllSeries from "../pages/AllSeries";
 import AddSeries from "../pages/AddSeries";
 import FavoriteSeries from "../pages/FavoriteSeries";
 import Discover from "../pages/Discover";
+import SeriesDetails from "../pages/SeriesDetails";
 
 
 const router = createBrowserRouter([
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                loader: () => fetch('http://localhost:5000/series')
+                // loader: () => fetch('http://localhost:5000/series')
             },
             {
                 path: '/all-series',
@@ -24,16 +25,21 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/series')
             },
             {
-                path: 'add-series',
+                path: '/add-series',
                 element: <AddSeries/>
             },
             {
-                path: 'favorite-series',
+                path: '/favorite-series',
                 element: <FavoriteSeries/>
             },
             {
-                path: 'discover',
+                path: '/discover',
                 element: <Discover/>
+            },
+            {
+                path: '/series/:id',
+                element: <SeriesDetails/>,
+                loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
             }
         ]
     }

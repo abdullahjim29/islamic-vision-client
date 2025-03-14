@@ -106,7 +106,7 @@ const AddSeries = () => {
               rows={7}
             ></textarea>
           </div>
-          <button className="btn btn-block bg-green-500 font-semibold text-lg text-black">
+          <button className="btn btn-block bg-[#573AEE] font-semibold text-lg text-white">
             Add Series
           </button>
         </form>
