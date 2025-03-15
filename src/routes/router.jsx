@@ -30,7 +30,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/favorite-series',
-                element: <FavoriteSeries/>
+                element: <FavoriteSeries/>,
+                loader: () => fetch('http://localhost:5000/favorite'),
             },
             {
                 path: '/discover',

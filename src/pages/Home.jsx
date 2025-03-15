@@ -1,4 +1,3 @@
-import {useEffect, useState} from "react";
 import SeriesCards from "../components/SeriesCards";
 import {Link} from "react-router-dom";
 import Video from "../components/Video";
@@ -7,16 +6,16 @@ import { SeriesContext } from "../layout/SeriesContextApi";
 
 const Home = () => {
   const {series, setSeries} = useContext(SeriesContext);
-  
-  const limitedSeries = [...series].slice(0, 6)
-  console.log(limitedSeries);
- 
+  const limitedSeries = [...series].slice(0, 6);
   return (
     <div>
       <div className="flex items-center gap-4">
         <h2 className="text-3xl font-[raleway] font-semibold">Islamic Vision Most Popular</h2>
       </div>
       <SeriesCards limitedSeries={limitedSeries} />
+      {
+        series.length <= 0 && <div><h3 className="text-red-700 text-5xl text-center my-10">NO DATA FOUND</h3></div>
+      }
       <div className="flex items-center gap-2 hover:text-[#573AEE] text-xl">
         <div className="flex items-center gap-2">
           <Link to={'/all-series'}><button className="btn bg-[#573AEE] text-white">See All</button></Link>
