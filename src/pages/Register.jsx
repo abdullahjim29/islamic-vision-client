@@ -12,11 +12,23 @@ const Register = () => {
         const photo = e.target.photo.value;
         const password = e.target.password.value;
 
-        const newUser = {name, email, photo, password}
+        const newUser = {name, email}
 
         createNewUser(email, password)
         .then(result => {
             console.log(result.user);
+
+            fetch('http://localhost:5000/user', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
         })
         .catch(err => {
             console.log(err.message);
