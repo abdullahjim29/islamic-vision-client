@@ -1,7 +1,23 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../layout/AuthProvider";
 
 const Login = () => {
-  
+  const {loginUser} = useContext(AuthContext);
+  const handleLoginUser = e => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(err => {
+      console.log(err.message);
+    })
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div
@@ -14,7 +30,7 @@ const Login = () => {
     <div className="max-w-md">
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 shadow-lg">
       <h1 className="text-2xl font-bold text-center">Login To Continue</h1>
-      <form className="space-y-6">
+      <form onSubmit={handleLoginUser} className="space-y-6">
         <div className="space-y-1 text-sm">
           <label className="block dark:text-gray-600">
             Email
