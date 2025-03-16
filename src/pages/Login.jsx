@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../layout/AuthProvider";
 
 const Login = () => {
-  const {loginUser, setUser} = useContext(AuthContext);
+  const {loginUser, setUser, loginWithGoogle} = useContext(AuthContext);
   const handleLoginUser = e => {
     e.preventDefault();
 
@@ -11,6 +11,16 @@ const Login = () => {
     const password = e.target.password.value;
 
     loginUser(email, password)
+    .then(result => {
+      setUser(result.user)
+    })
+    .catch(err => {
+      console.log(err.message);
+    })
+  }
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
     .then(result => {
       setUser(result.user)
     })
@@ -72,7 +82,7 @@ const Login = () => {
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" className="p-3 rounded-sm">
+        <button onClick={handleGoogleLogin} aria-label="Log in with Google" className="p-3 rounded-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"

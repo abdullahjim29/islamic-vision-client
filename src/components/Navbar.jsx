@@ -47,9 +47,12 @@ const Navbar = () => {
             {navNavLinks}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-4">
         {
           user ? <Link onClick={logOutUser} to={'/login'} className="btn bg-[#573AEE] text-white border-none">Log Out</Link> : <Link to={'/login'} className="btn bg-[#573AEE] text-white border-none">Login</Link>
+        }
+        {
+          !user && <Link to={'/register'} className="btn bg-[#573AEE] text-white border-none">Register</Link>
         }
       </div>
     </div>
