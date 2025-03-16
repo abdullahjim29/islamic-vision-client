@@ -13,7 +13,6 @@ const FavoriteCard = ({ favoriteSeries, favorite, setFavorite }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const remaingFavorte = [...favorite].filter(fav => fav._id !== id);
         setFavorite(remaingFavorte);
       });

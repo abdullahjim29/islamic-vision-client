@@ -23,7 +23,7 @@ const AddSeries = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            // e.target.reset();
+            e.target.reset();
         })
     }
   return (

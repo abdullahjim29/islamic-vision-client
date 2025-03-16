@@ -6,6 +6,8 @@ import AddSeries from "../pages/AddSeries";
 import FavoriteSeries from "../pages/FavoriteSeries";
 import Discover from "../pages/Discover";
 import SeriesDetails from "../pages/SeriesDetails";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 
 const router = createBrowserRouter([
@@ -41,8 +43,17 @@ const router = createBrowserRouter([
                 path: '/series/:id',
                 element: <SeriesDetails/>,
                 loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
-            }
+            },
+            
         ]
+    },
+    {
+        path: '/login',
+        element: <Login/>
+    },
+    {
+        path: '/register',
+        element: <Register/>
     }
 ])
 

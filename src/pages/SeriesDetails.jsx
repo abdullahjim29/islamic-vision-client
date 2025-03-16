@@ -8,8 +8,6 @@ const SeriesDetails = () => {
   const { _id, postar, title, genre, duration, release, ratings, summary } =
     loadedSeries;
 
-    console.log(loadedSeries);
-
   const navigate = useNavigate();
 
     const handleDelete = id => {
@@ -18,8 +16,8 @@ const SeriesDetails = () => {
        })
        .then(res => res.json())
        .then(data => {
-        console.log(data);
-        setSeries(data)
+        const remainingSeries = [...series].filter(series => series._id !== id)
+        setSeries(remainingSeries)
         navigate('/all-series')
        })
     }
