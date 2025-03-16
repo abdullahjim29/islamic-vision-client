@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../layout/AuthProvider";
 
 const Login = () => {
-  const {loginUser} = useContext(AuthContext);
+  const {loginUser, setUser} = useContext(AuthContext);
   const handleLoginUser = e => {
     e.preventDefault();
 
@@ -12,7 +12,7 @@ const Login = () => {
 
     loginUser(email, password)
     .then(result => {
-      console.log(result.user);
+      setUser(result.user)
     })
     .catch(err => {
       console.log(err.message);

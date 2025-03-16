@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../layout/AuthProvider";
 
 const Register = () => {
-    const {createNewUser} = useContext(AuthContext);
+    const {createNewUser, setUser} = useContext(AuthContext);
     const handleCreateUser = e => {
         e.preventDefault();
 
@@ -16,7 +16,7 @@ const Register = () => {
 
         createNewUser(email, password)
         .then(result => {
-            console.log(result.user);
+            setUser(result.user)
 
             fetch('http://localhost:5000/user', {
                 method: 'POST',
