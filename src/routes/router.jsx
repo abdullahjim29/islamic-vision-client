@@ -8,6 +8,7 @@ import Discover from "../pages/Discover";
 import SeriesDetails from "../pages/SeriesDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-series',
-                element: <AddSeries/>
+                element: <PrivateRoute><AddSeries/></PrivateRoute>
             },
             {
                 path: '/favorite-series',
-                element: <FavoriteSeries/>,
+                element: <PrivateRoute><FavoriteSeries/></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/favorite'),
             },
             {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/series/:id',
-                element: <SeriesDetails/>,
+                element: <PrivateRoute><SeriesDetails/></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
             },
             

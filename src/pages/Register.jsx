@@ -39,7 +39,7 @@ const Register = () => {
     createNewUser(email, password)
       .then((result) => {
         setUser(result.user);
-        toast.success('Registerd Succsess!')
+        toast.success('Registerd Succsessfull!')
 
         fetch("http://localhost:5000/user", {
           method: "POST",
