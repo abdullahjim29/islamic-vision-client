@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import toast from "react-hot-toast";
+import { AuthContext } from "../layout/AuthProvider";
 
 const AddSeries = () => {
+  const {user} = useContext(AuthContext);
+   const {email} = user;
+  //  console.log(email);
   const handleAddSeries = (e) => {
     e.preventDefault();
 
@@ -21,6 +25,7 @@ const AddSeries = () => {
       release,
       ratings,
       summary,
+      email,
     };
 
     const url = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})([\/\w .-]*)*\/?$/i;

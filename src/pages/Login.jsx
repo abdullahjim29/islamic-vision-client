@@ -40,6 +40,7 @@ const Login = () => {
       .then((result) => {
         setUser(result.user);
         toast.success("Login Succsessfull!");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((err) => {
         toast.error(err.message);

@@ -1,11 +1,12 @@
 import { CiStar } from "react-icons/ci";
 import { IoMdTime } from "react-icons/io";
 import { MdMovie } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const FavoriteCard = ({ favoriteSeries, favorite, setFavorite }) => {
   const { _id, postar, title, genre, duration, release, ratings, summary } =
     favoriteSeries;
+
+    console.log(favoriteSeries);
 
   const handleDeleteFavorite = (id) => {
     fetch(`http://localhost:5000/favorite/${id}`, {

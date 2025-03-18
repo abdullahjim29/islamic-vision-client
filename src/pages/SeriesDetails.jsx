@@ -3,12 +3,26 @@ import { useLoaderData, useNavigate} from "react-router-dom";
 import { SeriesContext } from "../layout/SeriesContextApi";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { AuthContext } from "../layout/AuthProvider";
 
 const SeriesDetails = () => {
   const loadedSeries = useLoaderData();
+  const {user} = useContext(AuthContext);
+  const {email} = user;
   const {series, setSeries,} = useContext(SeriesContext);
   const { _id, postar, title, genre, duration, release, ratings, summary } =
     loadedSeries;
+
+    const favoriteInfo ={
+      postar: loadedSeries?.postar,
+      title: loadedSeries?.title,
+      genre: loadedSeries?.genre,
+      duration: loadedSeries?.duration,
+      release: loadedSeries?.release,
+      ratings: loadedSeries?.ratings,
+      summary: loadedSeries?.summary,
+      email,
+    }
 
   const navigate = useNavigate();
 
@@ -29,16 +43,18 @@ const SeriesDetails = () => {
        })
     }
 
-    const handleFavorite = id => {
-      fetch(`http://localhost:5000/favorite/${id}`, {
-          method: 'PUT',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(loadedSeries)
+
+    const handleFavorite = () => {
+      fetch('http://localhost:5000/favorite', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(favoriteInfo)
       })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         toast.success('The Series Added to Favorite List Succsessfully!')
       })
     }
@@ -58,7 +74,7 @@ const SeriesDetails = () => {
         <p className="">{summary}</p>
         <div className="space-x-3">
         <button onClick={() => handleDelete(_id)} className="btn bg-[#573AEE] text-white hover:bg-white hove:border hover:border-[#573AEE] hover:text-black">Delete Movie</button>
-        <button onClick={() => handleFavorite(_id)} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Add to Favorite</button>
+        <button onClick={handleFavorite} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Add to Favorite</button>
         </div>
       </div>
     </div>
