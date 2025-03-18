@@ -1,31 +1,62 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+
 const AddSeries = () => {
-    const handleAddSeries = e => {
-        e.preventDefault();
+  const handleAddSeries = (e) => {
+    e.preventDefault();
 
-        const postar = e.target.postar.value;
-        const title = e.target.title.value;
-        const genre = e.target.genre.value;
-        const duration = e.target.duration.value;
-        const release = e.target.release.value;
-        const ratings = e.target.ratings.value;
-        const summary = e.target.summary.value;
+    const postar = e.target.postar.value;
+    const title = e.target.title.value;
+    const genre = e.target.genre.value;
+    const duration = e.target.duration.value;
+    const release = e.target.release.value;
+    const ratings = e.target.ratings.value;
+    const summary = e.target.summary.value;
 
-        const newSeries = {postar, title, genre, duration, release, ratings, summary}
+    const newSeries = {
+      postar,
+      title,
+      genre,
+      duration,
+      release,
+      ratings,
+      summary,
+    };
 
-        // adding new series
-        fetch('http://localhost:5000/series', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newSeries)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            e.target.reset();
-        })
+    const url = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})([\/\w .-]*)*\/?$/i;
+
+    if (!url.test(postar)) {
+      return toast.error("Please enter a valid URL in the Poster field.");
     }
+    else if(!/^[A-Za-z\s]+$/.test(title)){
+    return toast.error('Please Enter String')
+    }
+    else if (title.length < 2) {
+      return toast.error("Please write at least two characters in the Title field.");
+    } else if (duration === "" || duration < 60) {
+      return toast.error(
+        "Please enter a valid duration greater than 60 minutes."
+      );
+    }
+    else if(summary.length < 10){
+     return toast.error('Please write at least 10 charecters or longer')
+    }
+
+    // adding new series
+    fetch("http://localhost:5000/series", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newSeries),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Series Added To Database Succsessfully!");
+        e.target.reset();
+      });
+  };
+
   return (
     <div className="font-[raleway]">
       <div className="p-20 space-y-5 my-5">
@@ -43,9 +74,10 @@ const AddSeries = () => {
               Series Poster
               <input
                 name="postar"
-                type="url"
+                // type="url"
                 placeholder="Postar"
                 className="input w-full"
+                required
               />
             </div>
             <div>
@@ -55,6 +87,7 @@ const AddSeries = () => {
                 type="text"
                 placeholder="Title"
                 className="input w-full"
+                required
               />
             </div>
             <div>
@@ -73,6 +106,7 @@ const AddSeries = () => {
                 type="number"
                 placeholder="Duration"
                 className="input w-full"
+                required
               />
             </div>
             <div>
@@ -92,6 +126,7 @@ const AddSeries = () => {
                 type="text"
                 placeholder="Ratings"
                 className="input w-full"
+                required
               />
             </div>
           </div>

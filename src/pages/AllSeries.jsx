@@ -2,11 +2,16 @@ import { useContext } from "react";
 import SeriesCard from "../components/SeriesCard";
 import { SeriesContext } from "../layout/SeriesContextApi";
 import { useLoaderData } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const AllSeries = () => {
   const loadedSeries = useLoaderData();
   const {series, setSeries} = useContext(SeriesContext);
   setSeries(loadedSeries)
+
+  if(!series){
+    return <LoadingSpinner/>
+  }
   return (
     <div className="mb-20">
       <h2 className="text-4xl font-semibold text-center">Explore All Series</h2>

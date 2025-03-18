@@ -1,14 +1,20 @@
 import { useContext } from "react";
 import { useLoaderData, useNavigate} from "react-router-dom";
 import { SeriesContext } from "../layout/SeriesContextApi";
+import toast from "react-hot-toast";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const SeriesDetails = () => {
   const loadedSeries = useLoaderData();
-  const {series, setSeries} = useContext(SeriesContext);
+  const {series, setSeries,} = useContext(SeriesContext);
   const { _id, postar, title, genre, duration, release, ratings, summary } =
     loadedSeries;
 
   const navigate = useNavigate();
+
+  if(!loadedSeries){
+    return <LoadingSpinner/>
+  }
 
     const handleDelete = id => {
        fetch(`http://localhost:5000/series/${id}`, {
@@ -16,6 +22,7 @@ const SeriesDetails = () => {
        })
        .then(res => res.json())
        .then(data => {
+        toast.success('The Series Succsessfully Deleted!')
         const remainingSeries = [...series].filter(series => series._id !== id)
         setSeries(remainingSeries)
         navigate('/all-series')
@@ -32,7 +39,7 @@ const SeriesDetails = () => {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        toast.success('The Series Added to Favorite List Succsessfully!')
       })
     }
   return (

@@ -3,10 +3,15 @@ import {Link} from "react-router-dom";
 import Video from "../components/Video";
 import { useContext } from "react";
 import { SeriesContext } from "../layout/SeriesContextApi";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Home = () => {
-  const {series, setSeries} = useContext(SeriesContext);
+  const {series} = useContext(SeriesContext);
   const limitedSeries = [...series].slice(0, 6);
+
+  if(!series){
+    return <LoadingSpinner/>
+  }
   return (
     <div>
       <div className="flex items-center gap-4">
@@ -17,9 +22,11 @@ const Home = () => {
         series.length <= 0 && <div><h3 className="text-red-700 text-5xl text-center my-10">NO DATA FOUND</h3></div>
       }
       <div className="flex items-center gap-2 hover:text-[#573AEE] text-xl">
-        <div className="flex items-center gap-2">
+        {
+          series.length <= 6  ? '' : <div className="flex items-center gap-2">
           <Link to={'/all-series'}><button className="btn bg-[#573AEE] text-white">See All</button></Link>
         </div>
+        }
       </div>
       <Video/>
     </div>

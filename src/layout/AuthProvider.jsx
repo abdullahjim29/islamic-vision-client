@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 
+
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
@@ -19,14 +20,12 @@ const AuthProvider = ({children}) => {
 
     // login user
     const loginUser = (email, password) => {
-        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
 
     // login with google
     const loginWithGoogle = () => {
-        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 
@@ -39,10 +38,9 @@ const AuthProvider = ({children}) => {
     // observe user
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            if(currentUser){
                 setUser(currentUser);
                 setLoading(false);
-            }
+            
         })
 
         return () => {
@@ -58,7 +56,8 @@ const AuthProvider = ({children}) => {
         user,
         setUser,
         logOutUser,
-        loginWithGoogle
+        loginWithGoogle,
+        loading,
     }
     return (
         <AuthContext.Provider value={authInfo}>

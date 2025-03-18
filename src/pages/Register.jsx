@@ -1,12 +1,19 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../layout/AuthProvider";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+import auth from "../firebase/firebase.config";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
   const { createNewUser, setUser, loginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const [isShow, setIsShow] = useState(false);
+
+
   const handleCreateUser = (e) => {
     e.preventDefault();
 
@@ -16,6 +23,7 @@ const Register = () => {
     const password = e.target.password.value;
 
     const newUser = { name, email };
+    const userInfo = {name, photo}
 
     setError("");
 
@@ -40,6 +48,14 @@ const Register = () => {
       .then((result) => {
         setUser(result.user);
         toast.success('Registerd Succsessfull!')
+        navigate('/');
+
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo
+        })
+        .then(() => {})
+        .catch(() => {})
 
         fetch("http://localhost:5000/user", {
           method: "POST",
@@ -116,10 +132,10 @@ const Register = () => {
                     className="w-full border px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
                   />
                 </div>
-                <div className="space-y-1 text-sm">
+                <div className="space-y-1 text-sm relative">
                   <label className="block dark:text-gray-600">Password</label>
                   <input
-                    type="password"
+                    type={`${isShow ? 'text' : 'password'}`}
                     name="password"
                     id="password"
                     placeholder="Password"
@@ -128,6 +144,9 @@ const Register = () => {
                   />
                   <div className="flex justify-end text-xs dark:text-gray-600"></div>
                   <p className="text-red-500">{error}</p>
+                  {
+                    isShow ? <IoMdEye onClick={() => setIsShow(false)} className="absolute top-10 right-4 text-lg"/> : <IoMdEyeOff onClick={() => setIsShow(true)} className="absolute top-10 right-4 text-lg" />
+                  }
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">
                   Register
