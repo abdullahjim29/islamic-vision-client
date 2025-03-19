@@ -22,7 +22,7 @@ const AllSeries = () => {
     .then(data => {
       setSeries(data)
     })
-  }, [series])
+  }, [search])
   
   return (
     <div className="mb-20">
