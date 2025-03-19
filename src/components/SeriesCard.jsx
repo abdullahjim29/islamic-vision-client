@@ -9,7 +9,7 @@ const SeriesCard = ({ series }) => {
     series;
   return (
     <div>
-      <div className="card bg-base-100 border border-gray-200 p-4">
+      <div className="card bg-base-100 p-4">
         <figure>
           <img className="h-[224px] w-full" src={postar} alt={title} />
         </figure>

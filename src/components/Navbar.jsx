@@ -99,7 +99,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-white">Islamic Vision</a>
+        <Link to={'/'} className="btn btn-ghost text-xl text-white">Islamic Vision</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -109,10 +109,10 @@ const Navbar = () => {
           <div
             onMouseEnter={() => setShow(true)}
             onMouseLeave={() => setTimeout(() => setShow(false), 3000)}
-            className="bg-white rounded-full p-2"
+            className=""
           >
             <img
-              className="w-[40px] h-[38px]"
+              className="w-[50px] h-[50px] rounded-full"
               title={user?.displayName}
               src={user?.photoURL}
               alt=""

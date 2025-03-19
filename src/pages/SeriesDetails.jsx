@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData, useNavigate} from "react-router-dom";
+import { Link, useLoaderData, useNavigate} from "react-router-dom";
 import { SeriesContext } from "../layout/SeriesContextApi";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -59,8 +59,8 @@ const SeriesDetails = () => {
       })
     }
   return (
-    <div className="bg-base-200 p-14 min-h-screen mb-16 flex gap-10">
-      <div className="w-10/12">
+    <div className="bg-base-200 p-14 min-h-screen mb-16 flex flex-col md:flex-row gap-10">
+      <div className="w-full md:w-10/12 ">
         <img className="rounded-2xl" src={postar} alt={title} />
       </div>
 
@@ -73,9 +73,11 @@ const SeriesDetails = () => {
         <span className="font-semibold">Summary</span>
         <p className="">{summary}</p>
         <div className="space-x-3">
-        <button onClick={() => handleDelete(_id)} className="btn bg-[#573AEE] text-white hover:bg-white hove:border hover:border-[#573AEE] hover:text-black">Delete Movie</button>
+        <button onClick={() => handleDelete(_id)} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Delete Movie</button>
         <button onClick={handleFavorite} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Add to Favorite</button>
+        <button className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white"><Link to={`/update-series/${_id}`}>Update Series</Link></button>
         </div>
+        
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import UpdateSeries from "../pages/UpdateSeries";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><SeriesDetails/></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
             },
+            {
+                path: '/update-series/:id',
+                element: <PrivateRoute><UpdateSeries/></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
+            }
             
         ]
     },
