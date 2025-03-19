@@ -100,8 +100,8 @@ const AddSeries = () => {
               <select className="input w-full" name="genre" id="">
                 <option value="osmani khelafot">Osmani Khelafot</option>
                 <option value="seljuk khelafot">Seljuk Khelafot</option>
-                <option value="ayyubi">Ayyubi</option>
-                <option value="others">Others</option>
+                <option value="ayyubi Khelafot">Ayyubi Khelafot</option>
+                <option value="others Khelafot">Others Khelafot</option>
               </select>
             </div>
             <div>

@@ -8,19 +8,12 @@ import LoadingSpinner from "../components/LoadingSpinner";
 const Home = () => {
   const {series} = useContext(SeriesContext);
   const limitedSeries = [...series].slice(0, 6);
-
-  if(!series){
-    return <LoadingSpinner/>
-  }
   return (
     <div>
       <div className="flex items-center gap-4">
         <h2 className="text-3xl font-[raleway] font-semibold">Islamic Vision Most Popular</h2>
       </div>
       <SeriesCards limitedSeries={limitedSeries} />
-      {
-        series.length <= 0 && <div><h3 className="text-red-700 text-5xl text-center my-10">NO DATA FOUND</h3></div>
-      }
       <div className="flex items-center gap-2 hover:text-[#573AEE] text-xl">
         {
           series.length <= 6  ? '' : <div className="flex items-center gap-2">

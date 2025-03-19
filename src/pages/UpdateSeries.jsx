@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { SeriesContext } from "../layout/SeriesContextApi";
-import { useLoaderData } from "react-router-dom";
 
 const UpdateSeries = () => {
-    const {series} = useContext(SeriesContext);
-    // console.log(series);
+    const {setSeries} = useContext(SeriesContext);
     const loadedSeries = useLoaderData();
     const { _id, postar, title, genre, duration, release, ratings, summary } = loadedSeries;
-    const handleAddSeries = (e) => {
+    const navigate = useNavigate();
+    const handleAddSeries =e => {
         e.preventDefault();
     
         const postar = e.target.postar.value;
@@ -58,8 +58,10 @@ const UpdateSeries = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            setSeries(data);
             toast.success("Series Succsessfully Updated!");
             e.target.reset();
+            navigate('/all-series')
           });
       };
     return (
@@ -148,7 +150,7 @@ const UpdateSeries = () => {
             ></textarea>
           </div>
           <button className="btn btn-block bg-[#573AEE] font-semibold text-lg text-white">
-            Add Series
+            Update Series
           </button>
         </form>
       </div>
