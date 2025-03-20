@@ -25,7 +25,7 @@ const AllSeries = () => {
   }, [search])
   
   return (
-    <div className="mb-20">
+    <div className="mb-20 mt-10">
       <h2 className="text-4xl font-semibold text-center">Explore All Series</h2>
       <div className="flex justify-center my-5">
         <label className="input">

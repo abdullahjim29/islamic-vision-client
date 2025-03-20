@@ -66,9 +66,9 @@ const UpdateSeries = () => {
       };
     return (
         <div className="font-[raleway]">
-      <div className="p-20 space-y-5 my-5">
-        <h2 className="text-4xl text-center">Update The Series</h2>
-        <p className="text-sm w-10/12 mx-auto leading-6 text-center">
+      <div className="p-0 md:p-20 space-y-5 my-5">
+        <h2 className="text-2xl md:text-4xl text-center">Update The Series</h2>
+        <p className="text-sm w-full md:w-10/12 mx-auto leading-6 text-center">
         Modify and update your favorite series effortlessly with this form. Adjust the series title, genre, release year, duration, rating, and summary to keep the details accurate and up to date. Ensure your content remains relevant and well-organized with this easy-to-use interface
         </p>
 
@@ -142,7 +142,7 @@ const UpdateSeries = () => {
             <label>Summary</label>
             <textarea
             defaultValue={summary}
-              className="border border-gray-500 rounded-md w-full my-5"
+              className="border border-gray-500 rounded-md w-full my-5 p-3"
               name="summary"
               id=""
               cols={10}

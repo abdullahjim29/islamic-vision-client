@@ -33,10 +33,10 @@ const Pricing = () => {
   ];
 
   return (
-    <div>
+    <div className="mt-10">
       <div className="text-center space-y-3 mb-16">
         <p>our pricing plans</p>
-        <h2 className="text-5xl font-semibold">Our Pricing Strategy</h2>
+        <h2 className="text-3xl md:text-5xl font-semibold">Our Pricing Strategy</h2>
         <p className="border-b-2 border-[#573AEE] w-[10%] mx-auto"></p>
       </div>
 

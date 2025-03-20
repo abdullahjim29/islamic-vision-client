@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Video = () => {
   return (
     <div className="my-20">
@@ -16,7 +18,7 @@ const Video = () => {
         <h2 className="text-4xl font-bold font-[raleway]">Mehmed Fetihler Sultanı</h2>
         <p className="text-xl font-[raleway]">2024 | Telivision Drama Series, Entertainment</p>
         <p className="font-[raleway]">Mehmed the Conqueror" (Fatih Sultan Mehmed) is a historical drama that focuses on the life of Fatih Sultan Mehmed, one of the most magnificent rulers of the Ottoman Empire. The series depicts his struggle to conquer Istanbul and defeat his enemies.</p>
-        <button className="btn bg-[#573AEE] text-white uppercase font-[raleway]">Watch Now</button>
+        <Link target="_blank" to={'https://www.youtube.com/@mehmedfetihlersultani'}><button className="btn bg-[#573AEE] text-white uppercase font-[raleway]">Watch Now</button></Link>
       </div>
     </div>
     </div>

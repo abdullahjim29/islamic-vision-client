@@ -24,17 +24,17 @@ const MainLayout = () => {
   }, []);
   return (
     <div>
-      <header className="relative min-h-screen">
+      <header className="">
         <div className={`fixed top-0 z-10 w-full ${scrolling ? "backdrop-blur-3xl shadow-lg" : "bg-transparent"}`}>
         <Navbar scrolling={scrolling} />
         </div>
 
-        <div className="absolute top-0">
+        <div className="">
           <BannerImageSlider />
         </div>
       </header>
 
-      <main className="w-11/12 mx-auto">
+      <main className="max-w-11/12 mx-auto">
         <Outlet />
       </main>
 

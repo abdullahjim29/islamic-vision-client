@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-base-200">
       <div className="footer sm:footer-horizontal text-base-content p-10 w-11/12 mx-auto">
         <nav>
-          <h6 className="text-4xl font-semibold">Islamic Vision</h6>
+          <h6 className="text-2xl lg:text-4xl font-semibold">Islamic Vision</h6>
           <a className="link link-hover">Who we are</a>
           <a className="link link-hover">Contact Us</a>
         </nav>

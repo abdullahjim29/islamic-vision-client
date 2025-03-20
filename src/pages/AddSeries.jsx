@@ -5,7 +5,6 @@ import { AuthContext } from "../layout/AuthProvider";
 const AddSeries = () => {
   const {user} = useContext(AuthContext);
    const {email} = user;
-  //  console.log(email);
   const handleAddSeries = (e) => {
     e.preventDefault();
 
@@ -63,8 +62,8 @@ const AddSeries = () => {
   };
 
   return (
-    <div className="font-[raleway]">
-      <div className="p-20 space-y-5 my-5">
+    <div className="font-[raleway] my-20">
+      <div className="p-0 md:p-20 space-y-5 my-5">
         <h2 className="text-4xl text-center">Add New Series</h2>
         <p className="text-sm w-10/12 mx-auto leading-6 text-center">
           It is a long established fact that a reader will be distraceted by the

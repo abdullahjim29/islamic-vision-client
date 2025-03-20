@@ -6,8 +6,6 @@ const FavoriteCard = ({ favoriteSeries, favorite, setFavorite }) => {
   const { _id, postar, title, genre, duration, release, ratings, summary } =
     favoriteSeries;
 
-    console.log(favoriteSeries);
-
   const handleDeleteFavorite = (id) => {
     fetch(`http://localhost:5000/favorite/${id}`, {
       method: "DELETE",

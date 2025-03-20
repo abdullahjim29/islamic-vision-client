@@ -78,9 +78,10 @@ const Register = () => {
     loginWithGoogle()
       .then((result) => {
         setUser(result.user);
+        toast.success('User Login Succsess!')
       })
       .catch((err) => {
-        console.log(err.message);
+        toast.error(err.message);
       });
   };
   return (

@@ -54,13 +54,12 @@ const SeriesDetails = () => {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         toast.success('The Series Added to Favorite List Succsessfully!')
       })
     }
   return (
-    <div className="bg-base-200 p-14 min-h-screen mb-16 flex flex-col md:flex-row gap-10">
-      <div className="w-full md:w-10/12 ">
+    <div className="bg-base-200 p-14 min-h-screen mb-16 flex flex-col md:flex-row gap-10 my-10">
+      <div className="w-full md:w-10/12">
         <img className="rounded-2xl" src={postar} alt={title} />
       </div>
 
@@ -72,7 +71,7 @@ const SeriesDetails = () => {
         <p><span className="font-semibold text-md">Ratings: </span><span>{ratings}</span></p>
         <span className="font-semibold">Summary</span>
         <p className="">{summary}</p>
-        <div className="space-x-3">
+        <div className="space-x-3 space-y-5 md:space-y-0">
         <button onClick={() => handleDelete(_id)} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Delete Movie</button>
         <button onClick={handleFavorite} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Add to Favorite</button>
         <button className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white"><Link to={`/update-series/${_id}`}>Update Series</Link></button>

@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import Video from "../components/Video";
 import { useContext } from "react";
 import { SeriesContext } from "../layout/SeriesContextApi";
-import LoadingSpinner from "../components/LoadingSpinner";
 import ExtraSection from "../components/ExtraSection";
 
 const Home = () => {
@@ -11,7 +10,7 @@ const Home = () => {
   const limitedSeries = [...series].slice(0, 6);
   return (
     <div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 my-14">
         <h2 className="text-3xl font-[raleway] font-semibold">Islamic Vision Most Popular</h2>
       </div>
       <SeriesCards limitedSeries={limitedSeries} />

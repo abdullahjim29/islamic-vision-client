@@ -11,7 +11,7 @@ const FavoriteSeries = () => {
     const CurrentUserFavorite = [...favorite].filter(CurUserFav => CurUserFav.email === user.email);
 
     return (
-        <div className="mb-20">
+        <div className="mb-20 mt-10">
             <h2 className="text-4xl font-semibold text-center mb-10">All Favorite</h2>
             {
                 CurrentUserFavorite.length <= 0 ? <div><h2 className="text-red-500 text-4xl text-center font-semibold">There is no favorite Series</h2></div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 my-5 gap-y-10">

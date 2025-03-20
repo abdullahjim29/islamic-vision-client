@@ -29,7 +29,7 @@ const BannerImageSlider = () => {
 
       <div className="hidden md:block lg:hidden">
         <SimpleImageSlider
-          width={800}
+          width={770}
           height={380}
           images={images}
           showNavs={true}
@@ -40,7 +40,7 @@ const BannerImageSlider = () => {
       </div>
       <div className="block md:hidden">
         <SimpleImageSlider
-          width={420}
+          width={430}
           height={240}
           images={images}
           showNavs={true}
