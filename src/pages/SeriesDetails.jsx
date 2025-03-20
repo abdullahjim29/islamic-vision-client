@@ -72,7 +72,7 @@ const SeriesDetails = () => {
         <span className="font-semibold">Summary</span>
         <p className="">{summary}</p>
         <div className="space-x-3 space-y-5 md:space-y-0">
-        <button onClick={() => handleDelete(_id)} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Delete Movie</button>
+        <button onClick={() => handleDelete(_id)} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white md:mb-2 lg:mb-0">Delete Movie</button>
         <button onClick={handleFavorite} className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white">Add to Favorite</button>
         <button className="btn border border-[#573AEE] hover:bg-[#573AEE] hover:text-white"><Link to={`/update-series/${_id}`}>Update Series</Link></button>
         </div>
