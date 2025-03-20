@@ -3,7 +3,7 @@
 Islamic Vision is a user-friendly platform for exploring islamic series, viewing details, adding series, and managing favorites. The site features dynamic UI, authentication, and seamless user interaction.
 
 ## 🌍 Live Demo
-[http://islamic-vision.surge.sh/](#)
+[Click here to visit the live site](http://islamic-vision.surge.sh/)
 
 ## 🚀 Key Features
 - **User Authentication:** Login, Registration, Google Authentication (Firebase Auth)
