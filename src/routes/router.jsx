@@ -4,13 +4,13 @@ import Home from "../pages/Home";
 import AllSeries from "../pages/AllSeries";
 import AddSeries from "../pages/AddSeries";
 import FavoriteSeries from "../pages/FavoriteSeries";
-import Discover from "../pages/Discover";
 import SeriesDetails from "../pages/SeriesDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import UpdateSeries from "../pages/UpdateSeries";
+import Pricing from "../pages/Pricing";
 
 
 const router = createBrowserRouter([
@@ -39,8 +39,8 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/favorite'),
             },
             {
-                path: '/discover',
-                element: <Discover/>
+                path: '/pricing',
+                element: <Pricing/>
             },
             {
                 path: '/series/:id',

@@ -2,8 +2,8 @@ const Video = () => {
   return (
     <div className="my-20">
       <h2 className="text-5xl my-6">Trailer</h2>
-      <div className="flex flex-col md:flex-row">
-      <div>
+      <div className="flex flex-col lg:flex-row">
+      <div className="w-full">
         <video
           controls
           autoPlay

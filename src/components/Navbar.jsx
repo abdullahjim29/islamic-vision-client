@@ -76,9 +76,9 @@ const Navbar = ({scrolling}) => {
               ? "text-[#573AEE] font-bold"
               : `hover:border-b border-[#573AEE] font-semibold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`
           }
-          to={"/discover"}
+          to={"/pricing"}
         >
-          Discover
+          Pricing
         </NavLink>
       </li>
     </>
@@ -142,7 +142,9 @@ const Navbar = ({scrolling}) => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal px-1">
+          {navLinks}
+          </ul>
       </div>
       <div className="navbar-end space-x-4 relative">
         {user ? (
