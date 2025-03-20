@@ -17,7 +17,7 @@ const AllSeries = () => {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:5000/series?searchParams=${search}`)
+    fetch(`https://islamic-vision-server.vercel.app/series?searchParams=${search}`)
     .then(res => res.json())
     .then(data => {
       setSeries(data)

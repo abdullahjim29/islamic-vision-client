@@ -45,7 +45,7 @@ const ExtraSection = () => {
 
         {/* right */}
         <div className="w-full">
-            <img data-aos="zoom-in-up" className="w-full" src="/public/live_img.png" alt="" />
+            <img data-aos="zoom-in-up" className="w-full" src="https://i.ibb.co.com/vxJcFBBH/live-img.png" alt="" />
         </div>
       </div>
     </div>

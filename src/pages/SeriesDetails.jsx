@@ -31,7 +31,7 @@ const SeriesDetails = () => {
   }
 
     const handleDelete = id => {
-       fetch(`http://localhost:5000/series/${id}`, {
+       fetch(`https://islamic-vision-server.vercel.app/series/${id}`, {
         method: "DELETE",
        })
        .then(res => res.json())
@@ -45,7 +45,7 @@ const SeriesDetails = () => {
 
 
     const handleFavorite = () => {
-      fetch('http://localhost:5000/favorite', {
+      fetch('https://islamic-vision-server.vercel.app/favorite', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

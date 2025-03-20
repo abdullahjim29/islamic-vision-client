@@ -57,7 +57,7 @@ const Register = () => {
         .then(() => {})
         .catch(() => {})
 
-        fetch("http://localhost:5000/user", {
+        fetch("https://islamic-vision-server.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -22,12 +22,11 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                // loader: () => fetch('http://localhost:5000/series')
             },
             {
                 path: '/all-series',
                 element: <AllSeries/>,
-                loader: () => fetch('http://localhost:5000/series')
+                loader: () => fetch('https://islamic-vision-server.vercel.app/series')
             },
             {
                 path: '/add-series',
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path: '/favorite-series',
                 element: <PrivateRoute><FavoriteSeries/></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/favorite'),
+                loader: () => fetch('https://islamic-vision-server.vercel.app/favorite'),
             },
             {
                 path: '/pricing',
@@ -45,12 +44,12 @@ const router = createBrowserRouter([
             {
                 path: '/series/:id',
                 element: <PrivateRoute><SeriesDetails/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
+                loader: ({params}) => fetch(`https://islamic-vision-server.vercel.app/series/${params.id}`)
             },
             {
                 path: '/update-series/:id',
                 element: <PrivateRoute><UpdateSeries/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/series/${params.id}`)
+                loader: ({params}) => fetch(`https://islamic-vision-server.vercel.app/series/${params.id}`)
             }
             
         ]

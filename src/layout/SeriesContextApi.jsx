@@ -9,7 +9,7 @@ const SeriesContextApi = ({children}) => {
     const [series, setSeries] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/series')
+        fetch('https://islamic-vision-server.vercel.app/series')
         .then(res => res.json())
         .then(data => setSeries(data))
     }, [])

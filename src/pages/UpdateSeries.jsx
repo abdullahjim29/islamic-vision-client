@@ -49,7 +49,7 @@ const UpdateSeries = () => {
         }
     
         // update series
-        fetch(`http://localhost:5000/update-series/${_id}`, {
+        fetch(`https://islamic-vision-server.vercel.app/update-series/${_id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

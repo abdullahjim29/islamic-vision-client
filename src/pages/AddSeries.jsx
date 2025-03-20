@@ -47,7 +47,7 @@ const AddSeries = () => {
     }
 
     // adding new series
-    fetch("http://localhost:5000/series", {
+    fetch("https://islamic-vision-server.vercel.app/series", {
       method: "POST",
       headers: {
         "content-type": "application/json",

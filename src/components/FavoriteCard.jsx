@@ -7,7 +7,7 @@ const FavoriteCard = ({ favoriteSeries, favorite, setFavorite }) => {
     favoriteSeries;
 
   const handleDeleteFavorite = (id) => {
-    fetch(`http://localhost:5000/favorite/${id}`, {
+    fetch(`https://islamic-vision-server.vercel.app/favorite/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
