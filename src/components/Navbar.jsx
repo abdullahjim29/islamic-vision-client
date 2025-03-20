@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../layout/AuthProvider";
 
-const Navbar = () => {
+const Navbar = ({scrolling}) => {
   const { logOutUser, user } = useContext(AuthContext);
 
   const [show, setShow] = useState(false);
@@ -26,7 +26,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#573AEE] font-bold"
-              : "hover:border-b border-[#573AEE] font-semibold text-white"
+              : `hover:border-b border-[#573AEE] font-semibold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`
           }
           to={"/"}
         >
@@ -38,7 +38,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#573AEE] font-bold"
-              : "hover:border-b border-[#573AEE] font-semibold text-white"
+              : `hover:border-b border-[#573AEE] font-semibold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`
           }
           to={"/all-series"}
         >
@@ -50,7 +50,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#573AEE] font-bold"
-              : "hover:border-b border-[#573AEE] font-semibold text-white"
+              : `hover:border-b border-[#573AEE] font-semibold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`
           }
           to={"/add-series"}
         >
@@ -62,7 +62,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#573AEE] font-bold"
-              : "hover:border-b border-[#573AEE] font-semibold text-white"
+              : `hover:border-b border-[#573AEE] font-semibold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`
           }
           to={"/favorite-series"}
         >
@@ -74,7 +74,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#573AEE] font-bold"
-              : "hover:border-b border-[#573AEE] font-semibold text-white"
+              : `hover:border-b border-[#573AEE] font-semibold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`
           }
           to={"/discover"}
         >
@@ -84,7 +84,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar w-11/12 mx-auto">
+    <div className={`navbar w-11/12 mx-auto`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -111,12 +111,12 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
+        <div className="flex items-center">
         <label onClick={() => setToggleTheme(!toggleTheme)} className="">
-          {/* this hidden checkbox controls the state */}
 
           {/* sun icon */}
           <svg
-            className={`swap-off h-10 w-10 fill-current cursor-pointer text-white ${
+            className={`swap-off h-10 w-10 fill-current cursor-pointer ${scrolling && !toggleTheme ? 'text-black' : 'text-white'} ${
               !toggleTheme ? "hidden" : "block"
             }`}
             xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@ const Navbar = () => {
 
           {/* moon icon */}
           <svg
-            className={`swap-on h-10 w-10 fill-current cursor-pointer text-white ${
+            className={`swap-on h-10 w-10 fill-current cursor-pointer ${scrolling && !toggleTheme ? 'text-black' : 'text-white'} ${
               toggleTheme ? "hidden" : "block"
             }`}
             xmlns="http://www.w3.org/2000/svg"
@@ -136,9 +136,10 @@ const Navbar = () => {
             <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
           </svg>
         </label>
-        <Link to={"/"} className="btn btn-ghost text-xl text-white">
+        <Link to={"/"} className={`text-xl ml-5 font-bold ${scrolling && !toggleTheme ? 'text-black' : 'text-white'}`}>
           Islamic Vision
         </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>

@@ -7,7 +7,6 @@ const BannerImageSlider = () => {
     { url: "https://i.ibb.co/PvD23mk2/desktop-wallpaper-alparslan-alp-arslan.jpg" },
     { url: "https://i.ibb.co/LDPh6syP/645099.jpg" },
     { url: "https://i.ibb.co/GvfqDT4K/Kurulus-Osman.jpg" },
-    { url: "https://i.ibb.co.com/KQnPHwb/Destan-Series.jpg" },
     { url: "https://i.ibb.co.com/Gv153TSN/hq720.jpg" },
     { url: "https://i.ibb.co.com/ym6dMcFJ/30397725-30-NAMA.webp" },
     { url: "https://i.ibb.co.com/FknxJkch/Ammar-ibn-Aziz-Ahmed-Mehmet-Bozdag-ATV-Bozkir-Arslani-Celaleddin-Mendirman-Jaloliddin.jpg" },
